@@ -11,3 +11,4 @@ PORT = 3000
 JWT_SECRET = yourjwtsecret``` <\pre>
 
 Note that JWT_SECRET should be a long, random string for security (each member has their own one)
+# Testing
