@@ -159,6 +159,7 @@
         if (authToken) {
           localStorage.setItem("authToken", authToken);
           localStorage.setItem("userRole", "Family Member");
+          localStorage.removeItem("onboardingToken");
         }
 
         if (savedMsg)

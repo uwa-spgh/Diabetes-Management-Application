@@ -1,29 +1,6 @@
-"use client";
-
 import Image from 'next/image';
 
 export default function Page() {
-
-  if (typeof window !== "undefined") {
-
-    const authToken = localStorage.getItem("authToken");
-    const onboardingToken = localStorage.getItem("onboardingToken");
-    const userRole = localStorage.getItem("userRole");
-
-    if (authToken && userRole) {
-      // Fully onboarded -> homepage
-      if (userRole === "Patient") window.location.href = "/patient-homepage";
-      if (userRole === "Doctor") window.location.href = "/doctor-homepage";
-      if (userRole === "Family Member") window.location.href = "/family-homepage";
-    } 
-    
-    else if (onboardingToken && userRole) {
-      // Still onboarding -> onboarding page
-      if (userRole === "Patient") window.location.href = "/patient-onboarding";
-      if (userRole === "Doctor") window.location.href = "/doctor-onboarding";
-      if (userRole === "Family Member") window.location.href = "/family-onboarding";
-    }
-  }
 
   return (
     <main className="flex flex-col items-center px-5 bg-[var(--color-background)] gap-6 pt-8 min-h-screen">
@@ -55,6 +32,9 @@ export default function Page() {
           Register
         </a>
       </div>
+
+      {/* External JS for auto-redirect */}
+      <script src="/js/auto-redirect.js"></script>
     </main>
   );
 }

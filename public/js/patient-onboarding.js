@@ -199,6 +199,7 @@
         if (authToken) {
           localStorage.setItem("authToken", authToken);
           localStorage.setItem("userRole", "Patient");
+          localStorage.removeItem("onboardingToken");
         }
 
         // ✅ Align with login.js: cache userData + __active_profile_id__ so patient-homepage + log-data work offline

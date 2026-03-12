@@ -189,6 +189,7 @@
         if (authToken) {
           localStorage.setItem("authToken", authToken);
           localStorage.setItem("userRole", "Doctor");
+          localStorage.removeItem("onboardingToken");
         }
 
         if (savedMsg)
