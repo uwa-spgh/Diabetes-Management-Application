@@ -196,7 +196,10 @@
 
         // Expect an auth token back
         const authToken = result && (result.authToken || result.token);
-        if (authToken) localStorage.setItem("authToken", authToken);
+        if (authToken) {
+          localStorage.setItem("authToken", authToken);
+          localStorage.setItem("userRole", "Patient");
+        }
 
         // ✅ Align with login.js: cache userData + __active_profile_id__ so patient-homepage + log-data work offline
         try {
