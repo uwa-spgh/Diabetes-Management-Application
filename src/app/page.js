@@ -1,46 +1,30 @@
+"use client";
+
 import Image from 'next/image';
 
-(function() {
+export default function Page() {
+
   if (typeof window !== "undefined") {
+
     const authToken = localStorage.getItem("authToken");
     const onboardingToken = localStorage.getItem("onboardingToken");
     const userRole = localStorage.getItem("userRole");
 
     if (authToken && userRole) {
       // Fully onboarded -> homepage
-      switch(userRole) {
-        case "Patient":
-          window.location.href = "/patient-homepage";
-          break;
-        case "Doctor":
-          window.location.href = "/doctor-homepage";
-          break;
-        case "Family Member":
-          window.location.href = "/family-homepage";
-          break;
-        default:
-          window.location.href = "/login";
-      }
-    } else if (onboardingToken && userRole) {
+      if (userRole === "Patient") window.location.href = "/patient-homepage";
+      if (userRole === "Doctor") window.location.href = "/doctor-homepage";
+      if (userRole === "Family Member") window.location.href = "/family-homepage";
+    } 
+    
+    else if (onboardingToken && userRole) {
       // Still onboarding -> onboarding page
-      switch(userRole) {
-        case "Patient":
-          window.location.href = "/patient-onboarding";
-          break;
-        case "Doctor":
-          window.location.href = "/doctor-onboarding";
-          break;
-        case "Family Member":
-          window.location.href = "/family-onboarding";
-          break;
-        default:
-          window.location.href = "/login";
-      }
+      if (userRole === "Patient") window.location.href = "/patient-onboarding";
+      if (userRole === "Doctor") window.location.href = "/doctor-onboarding";
+      if (userRole === "Family Member") window.location.href = "/family-onboarding";
     }
   }
-})();
 
-export default function Page() {
   return (
     <main className="flex flex-col items-center px-5 bg-[var(--color-background)] gap-6 pt-8 min-h-screen">
       {/* Logo */}
