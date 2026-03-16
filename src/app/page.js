@@ -34,7 +34,7 @@ export default function Page() {
       </div>
 
       {/* External JS for auto-redirect */}
-      <script src="/js/auto-redirect.js"></script>
+      <script src="/js/auto-redirect.js" async></script>
     </main>
   );
 }
