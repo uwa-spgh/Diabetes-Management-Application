@@ -111,7 +111,7 @@ export async function PATCH(req) {
 
     const updated = await GeneralLog.findOneAndUpdate(
       { patient: patient.profileId, date: { $gte: start, $lt: end } },
-      comment ? { $set: { comment } } : {},
+      { $set: { comment } },
       { new: true, upsert: false }
     );
 
