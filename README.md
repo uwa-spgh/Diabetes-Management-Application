@@ -19,10 +19,11 @@ When the device is offline, the system will:
 
 This project requires a `.env` file to run the backend locally. Before running the project, create a `.env` file in the root directory and add the following variables:
 
-<pre> ```env
+```env
 MONGO_URI = mongodb+srv://user12345:team24dma@cluster0.eadmv9n.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
 PORT = 3000
-JWT_SECRET = yourjwtsecret``` <\pre>
+JWT_SECRET = yourjwtsecret
+```
 
 Note that JWT_SECRET should be a long, random string for security (each member has their own one)
 
