@@ -25,7 +25,7 @@ function getBearerFromHeader(req) {
 // }
 
 export function signJwt(payload) {
-  return jwt.sign(payload, SECRET, { expiresIn: "24h" });
+  return jwt.sign(payload, SECRET, { expiresIn: "365d" });
 }
 
 export function verifyJwt(req) {

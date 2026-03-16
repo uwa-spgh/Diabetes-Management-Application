@@ -116,6 +116,7 @@
 
       if (data.token) {
         localStorage.setItem("onboardingToken", data.token);
+        localStorage.setItem("userRole", role);
       }
 
       // new account -> purge any stale drafts
