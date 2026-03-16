@@ -33,5 +33,5 @@ After cloning the repository run `npm install` to install dependencies.
 
 * To run `npm run dev`.
 * To build `npm run build`.
-* To build `npm run serve`.
+* To serve `npm run serve`.
 
