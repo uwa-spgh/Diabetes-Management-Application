@@ -17,13 +17,19 @@ When the device is offline, the system will:
 
 ## Prerequisites
 
-* [Node](https://nodejs.org/en)
-* [Vercel](https://vercel.com/)
-* [MongoDB](https://www.mongodb.com/)
+* [Node](https://nodejs.org/en) installed.
+* [Vercel](https://vercel.com/) account.
+* [MongoDB](https://www.mongodb.com/) account.
 
-## Development
+## Local Development
 
 This project requires a `.env` file to run the backend locally. Before running the project, copy the `example.env` file and rename to `.env` in the root directory and edit the following variables:
+
+```env
+JWT_SECRET = yourjwtsecret
+VAPID_PUBLIC_KEY = generated_public_key
+VAPID_PRIVATE_KEY = generated_private_key
+```
 
 * The JWT_SECRET should be a long, random string for security. Generate one with
 
@@ -37,17 +43,9 @@ node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"
 npx web-push generate-vapid-keys
 ```
 
-```env
-JWT_SECRET = yourjwtsecret
-VAPID_PUBLIC_KEY = generated_public_key
-VAPID_PRIVATE_KEY = generated_private_key
-```
-
 ## Run locally
 
 After cloning the repository run `npm install` to install dependencies.
 
 * To run `npm run dev`.
 * To build `npm run build`.
-* To serve `npm run serve`.
-
