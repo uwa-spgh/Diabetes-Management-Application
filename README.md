@@ -15,17 +15,33 @@ When the device is offline, the system will:
 3. Automatically synchronise when the connection is restored
 4. Prevent duplicate submissions using idempotency keys
 
-## Environment Setup
+## Prerequisites
 
-This project requires a `.env` file to run the backend locally. Before running the project, create a `.env` file in the root directory and add the following variables:
+* [Node](https://nodejs.org/en)
+* [Vercel](https://vercel.com/)
+* [MongoDB](https://www.mongodb.com/)
 
-```env
-MONGO_URI = mongodb+srv://user12345:team24dma@cluster0.eadmv9n.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
-PORT = 3000
-JWT_SECRET = yourjwtsecret
+## Development
+
+This project requires a `.env` file to run the backend locally. Before running the project, copy the `example.env` file and rename to `.env` in the root directory and edit the following variables:
+
+* The JWT_SECRET should be a long, random string for security. Generate one with
+
+```bash
+node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"
 ```
 
-Note that JWT_SECRET should be a long, random string for security (each member has their own one)
+* Generate the vapid keys with
+
+```bash
+npx web-push generate-vapid-keys
+```
+
+```env
+JWT_SECRET = yourjwtsecret
+VAPID_PUBLIC_KEY = generated_public_key
+VAPID_PRIVATE_KEY = generated_private_key
+```
 
 ## Run locally
 
