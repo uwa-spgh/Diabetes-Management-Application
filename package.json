@@ -36,14 +36,14 @@
   "main": "app.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/anantchhabda/Diabetes-Management-Application.git"
+    "url": "git+hhttps://github.com/uwa-spgh/Diabetes-Management-Application.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "module",
   "bugs": {
-    "url": "https://github.com/anantchhabda/Diabetes-Management-Application/issues"
+    "url": "https://github.com/uwa-spgh/Diabetes-Management-Application/issues"
   },
-  "homepage": "https://github.com/anantchhabda/Diabetes-Management-Application#readme"
+  "homepage": "https://github.com/uwa-spgh/Diabetes-Management-Application/wiki"
 }
