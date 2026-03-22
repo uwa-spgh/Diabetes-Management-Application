@@ -747,8 +747,26 @@
       dateInput.value = `${yyyy}-${mm}-${dd}`;
       adjustDateWidth();
     }
+    function getLocalTodayISO() {
+      const d = new Date();
+      const yyyy = d.getFullYear();
+      const mm = String(d.getMonth() + 1).padStart(2, "0");
+      const dd = String(d.getDate()).padStart(2, "0");
+      return `${yyyy}-${mm}-${dd}`;
+    }
+    function enforceDateLimit() {
+      if (!dateInput) return;
+      const today = getLocalTodayISO();
+      if (dateInput.max !== today) dateInput.max = today;
+
+      // If a future value is typed/pasted manually, clamp it to today.
+      if (dateInput.value && dateInput.value > today) {
+        dateInput.value = today;
+      }
+    }
 
     // initial date & overlay
+    enforceDateLimit();
     setTodayIfEmpty();
     adjustDateWidth();
     updateDateOverlay(dateInput, dateOverlay);
@@ -1158,6 +1176,7 @@
     });
 
     dateInput?.addEventListener("input", () => {
+      enforceDateLimit();
       adjustDateWidth();
       updateDateOverlay(dateInput, dateOverlay);
       if (dateInput.value) {
@@ -1167,6 +1186,7 @@
     });
 
     dateInput?.addEventListener("change", async () => {
+      enforceDateLimit();
       adjustDateWidth();
       updateDateOverlay(dateInput, dateOverlay);
 
@@ -1233,6 +1253,9 @@
         } catch {}
       }
     });
+
+    // Keep max aligned with local date if user leaves page open past midnight.
+    dateInput?.addEventListener("focus", enforceDateLimit);
 
     setButtonActive(tabGlucose, true);
     setButtonActive(tabInsulin, false);
