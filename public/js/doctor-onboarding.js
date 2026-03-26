@@ -186,7 +186,11 @@
         }
 
         const authToken = result && (result.authToken || result.token);
-        if (authToken) localStorage.setItem("authToken", authToken);
+        if (authToken) {
+          localStorage.setItem("authToken", authToken);
+          localStorage.setItem("userRole", "Doctor");
+          localStorage.removeItem("onboardingToken");
+        }
 
         if (savedMsg)
           savedMsg.textContent = t(

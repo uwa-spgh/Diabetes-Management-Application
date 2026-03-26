@@ -1,6 +1,7 @@
 import Image from 'next/image';
 
 export default function Page() {
+
   return (
     <main className="flex flex-col items-center px-5 bg-[var(--color-background)] gap-6 pt-8 min-h-screen">
       {/* Logo */}
@@ -31,6 +32,9 @@ export default function Page() {
           Register
         </a>
       </div>
+
+      {/* External JS for auto-redirect */}
+      <script src="/js/auto-redirect.js" async></script>
     </main>
   );
 }
