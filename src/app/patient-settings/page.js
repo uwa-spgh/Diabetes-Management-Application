@@ -259,7 +259,7 @@ export default function Page() {
       </form>
 
       {/* page logic */}
-      <Script src="/js/patient-settings.js?v=4" strategy="afterInteractive" />
+      <Script src="/js/patient-settings.js?v=5" strategy="afterInteractive" />
     </main>
   );
 }

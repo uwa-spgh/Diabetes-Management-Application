@@ -85,13 +85,37 @@
     return { data: null, text: null };
   }
 
+  function getLocalTodayISO() {
+    const d = new Date();
+    const yyyy = d.getFullYear();
+    const mm = String(d.getMonth() + 1).padStart(2, "0");
+    const dd = String(d.getDate()).padStart(2, "0");
+    return `${yyyy}-${mm}-${dd}`;
+  }
+  function enforceDateLimit(dateInput) {
+    if (!dateInput) return;
+    const today = getLocalTodayISO();
+    if (dateInput.max !== today) dateInput.max = today;
+    if (dateInput.value && dateInput.value > today) {
+      dateInput.value = today;
+    }
+  }
+
   //form handling
   function setupForm() {
     const form = document.getElementById("onboardingForm");
     const savedMsg = document.getElementById("savedMsg");
     const submitBtn = form ? form.querySelector('button[type="submit"]') : null;
+    const dateOfBirth = document.getElementById("dateOfBirth");
 
     if (!form) return;
+    
+    if (dateOfBirth) {
+      enforceDateLimit(dateOfBirth);
+      dateOfBirth.addEventListener("input", () => enforceDateLimit(dateOfBirth));
+      dateOfBirth.addEventListener("change", () => enforceDateLimit(dateOfBirth));
+      dateOfBirth.addEventListener("focus", () => enforceDateLimit(dateOfBirth));
+    }
 
     let inFlight = false;
 

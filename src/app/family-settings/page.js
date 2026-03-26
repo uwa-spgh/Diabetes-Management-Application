@@ -150,7 +150,7 @@ export default function Page() {
 
       {/* i18n + page logic */}
       <Script src="/js/i18n.js" strategy="afterInteractive" />
-      <Script src="/js/family-settings.js?v=3" strategy="afterInteractive" />
+      <Script src="/js/family-settings.js?v=4" strategy="afterInteractive" />
     </main>
   );
 }

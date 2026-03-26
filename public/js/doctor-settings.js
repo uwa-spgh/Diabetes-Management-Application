@@ -1,10 +1,38 @@
 (function () {
+  function getLocalTodayISO() {
+    const d = new Date();
+    const yyyy = d.getFullYear();
+    const mm = String(d.getMonth() + 1).padStart(2, "0");
+    const dd = String(d.getDate()).padStart(2, "0");
+    return `${yyyy}-${mm}-${dd}`;
+  }
+  function enforceDateLimit(dateInput) {
+    if (!dateInput) return;
+    const today = getLocalTodayISO();
+    if (dateInput.max !== today) dateInput.max = today;
+    if (dateInput.value && dateInput.value > today) {
+      dateInput.value = today;
+    }
+  }
+
   const form = document.getElementById("settingsForm");
   const savedMsg = document.getElementById("savedMsg");
   if (!form) return;
 
   // Keep the message hidden until we explicitly show it
   if (savedMsg) savedMsg.classList.add("hidden");
+
+  // Setup date limiting for dateOfBirth
+  function setupDateLimit() {
+    const dateOfBirth = document.getElementById("dateOfBirth");
+    if (dateOfBirth) {
+      enforceDateLimit(dateOfBirth);
+      dateOfBirth.addEventListener("input", () => enforceDateLimit(dateOfBirth));
+      dateOfBirth.addEventListener("change", () => enforceDateLimit(dateOfBirth));
+      dateOfBirth.addEventListener("focus", () => enforceDateLimit(dateOfBirth));
+    }
+  }
+  setTimeout(setupDateLimit, 10);
 
   // --- Load existing doctor data ---
   async function loadUserData() {

@@ -148,7 +148,7 @@ export default function Page() {
       </form>
       
       {/* Script runs after DOM is ready */}
-      <Script src="/js/doctor-onboarding.js?v=2" strategy="afterInteractive" />
+      <Script src="/js/doctor-onboarding.js?v=3" strategy="afterInteractive" />
     </main>
   );
 }

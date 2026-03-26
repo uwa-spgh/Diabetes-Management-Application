@@ -138,7 +138,7 @@ export default function Page() {
       </form>
 
       {/* run after DOM ready so prefill works */}
-      <Script src="/js/family-onboarding.js?v=2" strategy="afterInteractive" />
+      <Script src="/js/family-onboarding.js?v=3" strategy="afterInteractive" />
     </main>
   );
 }

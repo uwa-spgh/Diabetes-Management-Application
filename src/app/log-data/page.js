@@ -167,7 +167,7 @@ export default function LogDataPage() {
       {/* modal */}
       <div
         id="editorModal"
-        className="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/30 backdrop-blur-sm p-2 sm:p-4"
+        className="hidden fixed inset-0 z-50 items-center justify-center bg-black/30 backdrop-blur-sm p-2 sm:p-4"
         role="dialog"
         aria-modal="true"
         aria-labelledby="editorTitle"
